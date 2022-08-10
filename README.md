@@ -15,3 +15,6 @@ using Json.Net;
 
 string jstr = JsonNet.Serialize(new Vector3(13, 66, 66)) 
 Vector3 res = JsonNet.Deserialize<Vector3>(jstr);
+
+# Video
+https://www.youtube.com/watch?v=JLGhHjlYqjU
