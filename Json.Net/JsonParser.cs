@@ -125,7 +125,7 @@ namespace Json.Net
                 while (NextChar!='}')
                 {
                     var name = FromJson(nameType);
-
+                     
                    
 
                     SkipWhite();
@@ -376,6 +376,34 @@ namespace Json.Net
 
                 try
                 {
+
+                    //if is dictonary and Key==vector
+
+                    if (type.ToString() == ("System.String"))
+                    { 
+                        return result.ToString();
+                    }
+
+
+                    if (type == typeof(Vector3))
+                    {                        
+                        return (object)JsonVectorFromString.StringToVector3(result.ToString()); 
+                    }
+
+                    if (type == typeof(Vector3Int))
+                    {
+                        return (object)JsonVectorFromString.StringToVector3Int(result.ToString());
+                    }
+
+                    if (type == typeof(Vector2))
+                    {
+                        return (object)JsonVectorFromString.StringToVector2(result.ToString());
+                    }
+
+                    if (type == typeof(Vector2Int))
+                    {
+                        return (object)JsonVectorFromString.StringToVector2Int(result.ToString());
+                    }
                     return Convert.ChangeType(result, type);
                 }
                 catch
